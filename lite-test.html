@@ -1,0 +1,28 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lite Test</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+background:#0a0d14;color:#fff;font-family:-apple-system,sans-serif;gap:24px;padding:20px;text-align:center}
+h1{font-size:22px;font-weight:300;letter-spacing:3px}
+#msg{font-size:16px;color:#caa64a;min-height:30px}
+button{padding:16px 40px;font-size:16px;letter-spacing:2px;border:1px solid #caa64a;
+background:transparent;color:#caa64a;border-radius:6px}
+button:active{background:#caa64a;color:#000}
+.dot{font-size:13px;color:#888}
+</style></head><body>
+<h1>PARADISE LITE TEST</h1>
+<p class="dot">اگر این صفحه باز شد و دکمه کار کرد، یعنی مشکل حجمِ فایل است</p>
+<button id="btn">دکمه را بزن</button>
+<div id="msg"></div>
+<script>
+var n=0;
+document.getElementById('btn').addEventListener('click',function(){
+  n++;
+  document.getElementById('msg').textContent='کار می‌کند! ('+n+' بار زده شد) ✓';
+});
+document.getElementById('msg').textContent='صفحه کامل لود شد ✓';
+</script>
+</body></html>
