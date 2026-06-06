@@ -313,7 +313,7 @@ var COMBINED_NODES=[{"facing": -179.5, "hotspots": [{"lon": 59.2, "lat": -0.2, "
 var P={cur:0,lon:0,lat:0,down:false,dx:0,dy:0,dlon:0,dlat:0,vLon:0,vLat:0,pLon:0,pLat:0,hs:[],tex:{},last:0,paused:false,raf:null,live:false,scene:null,cam:null,rend:null,sph:null,texL:null};
 var AUTO=0.05;
 function ll(lo,la,r){var p=THREE.MathUtils.degToRad(90-la),t=THREE.MathUtils.degToRad(lo);return new THREE.Vector3(r*Math.sin(p)*Math.cos(t),r*Math.cos(p),r*Math.sin(p)*Math.sin(t));}
-function ptex(i){if(P.tex[i])return P.tex[i];var t=P.texL.load("data:image/webp;base64,"+COMBINED_PANOS[i]);t.colorSpace=THREE.SRGBColorSpace;t.minFilter=THREE.LinearMipmapLinearFilter;t.magFilter=THREE.LinearFilter;t.anisotropy=P.rend.capabilities.getMaxAnisotropy();t.generateMipmaps=true;t.needsUpdate=true;P.tex[i]=t;return t;}
+function ptex(i){if(P.tex[i])return P.tex[i];var t=P.texL.load(COMBINED_PANOS[i]);t.colorSpace=THREE.SRGBColorSpace;t.minFilter=THREE.LinearMipmapLinearFilter;t.magFilter=THREE.LinearFilter;t.anisotropy=P.rend.capabilities.getMaxAnisotropy();t.generateMipmaps=true;t.needsUpdate=true;P.tex[i]=t;return t;}
 function initPano(ready){
  var c=document.getElementById("panoView");var w=c.clientWidth,h=c.clientHeight;
  if(!P.scene){P.scene=new THREE.Scene();P.cam=new THREE.PerspectiveCamera(108,w/h,0.1,1100);P.rend=new THREE.WebGLRenderer({antialias:true});P.rend.setPixelRatio(Math.min(devicePixelRatio,3));P.rend.setSize(w,h);c.appendChild(P.rend.domElement);var g=new THREE.SphereGeometry(500,64,44);g.scale(-1,1,1);P.texL=new THREE.TextureLoader();P.sph=new THREE.Mesh(g,new THREE.MeshBasicMaterial());P.scene.add(P.sph);bindPano(c);}
