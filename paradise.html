@@ -434,6 +434,7 @@ function enterPool(){
 }
 
 function quickJump(space){
+ if(window._hlTimer){clearTimeout(window._hlTimer);window._hlTimer=null;} if(typeof hideHL==="function")hideHL();
  document.getElementById("dd").classList.remove("on");
  if(state==="pano"){P.live=false;}
  vid.classList.remove("show");
